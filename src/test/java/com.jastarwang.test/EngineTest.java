@@ -2,8 +2,8 @@ package com.jastarwang.test;
 
 import com.arcsoft.face.FDEngine;
 import com.arcsoft.face.FREngine;
-import com.arcsoft.face.bean.AFR_FSDK_FACEMODEL;
-import com.arcsoft.face.bean.ASVLOFFSCREEN;
+import com.arcsoft.face.bean.AsvlOffScreen;
+import com.arcsoft.face.bean.FRFaceModel;
 import com.arcsoft.face.bean.FaceInfo;
 import com.arcsoft.face.util.ImageLoader;
 import org.junit.Test;
@@ -31,14 +31,25 @@ public class EngineTest {
         InputStream file1 = getClass().getResourceAsStream("/lzl1.jpg");
         InputStream file2 = getClass().getResourceAsStream("/lzl2.jpg");
 
-        AFR_FSDK_FACEMODEL mode1 = getFaceModel(file1);
-        AFR_FSDK_FACEMODEL mode2 = getFaceModel(file2);
+        FRFaceModel mode1 = getFaceModel(file1);
+        FRFaceModel mode2 = getFaceModel(file2);
 
         /**
          * 对比相似度
          */
         float similarity = frEngine.compareFaceSimilarity(mode1, mode2);
         System.out.println("相似度 = " + similarity);
+
+        /**
+         * 获取当前版本
+         */
+        String version = fdEngine.getVersion();
+        System.out.println("当前版本 = " + version);
+
+        /**
+         * 关闭引擎资源
+         */
+        fdEngine.unInitialEngine();
     }
 
     /**
@@ -51,12 +62,12 @@ public class EngineTest {
      * @date 2018/12/4
      * @version 1.0
      */
-    private AFR_FSDK_FACEMODEL getFaceModel(InputStream inputStream) throws IOException {
+    private FRFaceModel getFaceModel(InputStream inputStream) throws IOException {
         /**
          * 加载图片
          */
         BufferedImage img = ImageIO.read(inputStream);
-        ASVLOFFSCREEN image = ImageLoader.loadImage(img);
+        AsvlOffScreen image = ImageLoader.loadImage(img);
 
         /**
          * 检测人脸
@@ -70,7 +81,7 @@ public class EngineTest {
         /**
          * 提取特征值（此处演示只使用第一个，实际情况根据业务操作）
          */
-        AFR_FSDK_FACEMODEL faceModel = frEngine.extractFRFeature(image, faces[0]);
+        FRFaceModel faceModel = frEngine.extractFRFeature(image, faces[0]);
         System.out.println("检测到了人脸：" + faceModel);
         return faceModel;
     }
