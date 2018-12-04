@@ -1,10 +1,10 @@
 package com.arcsoft.face.api;
 
-import com.arcsoft.face.AFR_FSDK_FACEINPUT;
-import com.arcsoft.face.AFR_FSDK_FACEMODEL;
-import com.arcsoft.face.AFR_FSDK_Version;
-import com.arcsoft.face.ASVLOFFSCREEN;
-import com.arcsoft.face.utils.LoadUtils;
+import com.arcsoft.face.bean.AFR_FSDK_FACEINPUT;
+import com.arcsoft.face.bean.AFR_FSDK_FACEMODEL;
+import com.arcsoft.face.bean.AFR_FSDK_Version;
+import com.arcsoft.face.bean.ASVLOFFSCREEN;
+import com.arcsoft.face.util.LoadUtils;
 import com.sun.jna.NativeLong;
 import com.sun.jna.Platform;
 import com.sun.jna.Pointer;

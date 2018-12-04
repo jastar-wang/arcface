@@ -1,4 +1,4 @@
-package com.arcsoft.face.utils;
+package com.arcsoft.face.util;
 
 import com.sun.jna.Native;
 import com.sun.jna.Platform;

@@ -1,4 +1,4 @@
-package com.arcsoft.face;
+package com.arcsoft.face.bean;
 
 public class BufferInfo {
 	public int width;

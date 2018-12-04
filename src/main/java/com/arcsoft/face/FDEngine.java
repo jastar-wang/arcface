@@ -2,8 +2,12 @@ package com.arcsoft.face;
 
 import com.arcsoft.face.api.AFD_FSDKLibrary;
 import com.arcsoft.face.api.CLibrary;
-import com.arcsoft.face.utils.Linux64Config;
-import com.arcsoft.face.utils.Win32Config;
+import com.arcsoft.face.bean.AFD_FSDK_Version;
+import com.arcsoft.face.bean.ASVLOFFSCREEN;
+import com.arcsoft.face.bean.FaceInfo;
+import com.arcsoft.face.bean.MRECT;
+import com.arcsoft.face.util.Linux64Config;
+import com.arcsoft.face.util.Win32Config;
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.ptr.PointerByReference;

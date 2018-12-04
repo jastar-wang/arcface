@@ -1,4 +1,4 @@
-package com.arcsoft.face.utils;
+package com.arcsoft.face.util;
 
 /**
  * Windows(X86) 过期时间：2019-09-25

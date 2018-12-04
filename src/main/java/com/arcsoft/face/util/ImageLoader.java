@@ -1,4 +1,4 @@
-package com.arcsoft.face.utils;
+package com.arcsoft.face.util;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
@@ -9,9 +9,9 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
-import com.arcsoft.face.ASVLOFFSCREEN;
+import com.arcsoft.face.bean.ASVLOFFSCREEN;
 import com.arcsoft.face.ASVL_COLOR_FORMAT;
-import com.arcsoft.face.BufferInfo;
+import com.arcsoft.face.bean.BufferInfo;
 import com.sun.jna.Memory;
 import com.sun.jna.Pointer;
 

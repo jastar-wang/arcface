@@ -1,4 +1,4 @@
-package com.arcsoft.face;
+package com.arcsoft.face.bean;
 
 import java.util.Arrays;
 import java.util.List;
