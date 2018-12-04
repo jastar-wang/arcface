@@ -10,8 +10,8 @@ import org.junit.Test;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * SDK测试类
@@ -27,9 +27,9 @@ public class EngineTest {
 
     @Test
     public void test() throws IOException {
-        // 文件1
-        String file1 = "F:\\Workspace\\idea\\arcface\\src\\test\\resources\\lzl1.jpg";
-        String file2 = "F:\\Workspace\\idea\\arcface\\src\\test\\resources\\lzl2.jpg";
+        // 文件
+        InputStream file1 = getClass().getResourceAsStream("/lzl1.jpg");
+        InputStream file2 = getClass().getResourceAsStream("/lzl2.jpg");
 
         AFR_FSDK_FACEMODEL mode1 = getFaceModel(file1);
         AFR_FSDK_FACEMODEL mode2 = getFaceModel(file2);
@@ -44,18 +44,18 @@ public class EngineTest {
     /**
      * 根据图片提取人脸特征值
      *
-     * @param imagePath
-     * @return
+     * @param inputStream 图片输入流
+     * @return 人脸特征值对象
      * @throws IOException
      * @author Jastar Wang
      * @date 2018/12/4
      * @version 1.0
      */
-    private AFR_FSDK_FACEMODEL getFaceModel(String imagePath) throws IOException {
+    private AFR_FSDK_FACEMODEL getFaceModel(InputStream inputStream) throws IOException {
         /**
          * 加载图片
          */
-        BufferedImage img = ImageIO.read(new File(imagePath));
+        BufferedImage img = ImageIO.read(inputStream);
         ASVLOFFSCREEN image = ImageLoader.loadImage(img);
 
         /**
