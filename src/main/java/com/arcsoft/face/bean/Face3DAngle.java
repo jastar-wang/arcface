@@ -7,6 +7,17 @@ import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
 import com.sun.jna.ptr.PointerByReference;
 
+import lombok.ToString;
+
+/**
+ * 人脸3D角度
+ * 
+ * @author Jastar·Wang
+ * @email jastar_wang@163.com
+ * @date 2018-12-05
+ * @since 2.0
+ */
+@ToString
 public class Face3DAngle extends Structure {
 
 	public PointerByReference roll;// 横滚角float[]

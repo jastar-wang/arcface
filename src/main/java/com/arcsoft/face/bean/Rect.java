@@ -8,6 +8,14 @@ import com.sun.jna.Structure;
 
 import lombok.ToString;
 
+/**
+ * 人脸位置
+ * 
+ * @author Jastar·Wang
+ * @email jastar_wang@163.com
+ * @date 2018-12-05
+ * @since 2.0
+ */
 @ToString
 public class Rect extends Structure {
 	public static class ByValue extends Rect implements Structure.ByValue {
@@ -32,6 +40,42 @@ public class Rect extends Structure {
 	@Override
 	protected List<String> getFieldOrder() {
 		return Arrays.asList("left", "top", "right", "bottom");
+	}
+
+	/**
+	 * X轴起点
+	 * 
+	 * @return
+	 */
+	public int getLeft() {
+		return this.left;
+	}
+
+	/**
+	 * Y轴起点
+	 * 
+	 * @return
+	 */
+	public int getTop() {
+		return this.top;
+	}
+
+	/**
+	 * 宽
+	 * 
+	 * @return
+	 */
+	public int getWidth() {
+		return this.right - this.left;
+	}
+
+	/**
+	 * 高
+	 * 
+	 * @return
+	 */
+	public int getHeight() {
+		return this.bottom - this.top;
 	}
 
 }

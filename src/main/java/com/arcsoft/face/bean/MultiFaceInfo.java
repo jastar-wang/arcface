@@ -9,6 +9,14 @@ import com.sun.jna.ptr.IntByReference;
 
 import lombok.ToString;
 
+/**
+ * 多人脸
+ * 
+ * @author Jastar·Wang
+ * @email jastar_wang@163.com
+ * @date 2018-12-05
+ * @since 2.0
+ */
 @ToString
 public class MultiFaceInfo extends Structure {
 
@@ -50,16 +58,19 @@ public class MultiFaceInfo extends Structure {
 		return orients;
 	}
 
+	/**
+	 * 辅助方法，方便查看是否有人脸
+	 * 
+	 * @return true表示有，false无
+	 */
 	public boolean haveFace() {
 		return faceNum <= 0 ? false : true;
 	}
 
 	/**
-	 * 将多人脸转换为单人脸对象
-	 *
-	 * @author Jastar Wang
-	 * @date 2018/12/3
-	 * @version 1.0
+	 * 辅助方法，将多人脸转换为单人脸对象
+	 * 
+	 * @return 单人脸对象数组，可能为null
 	 */
 	public SingleFaceInfo[] getFaces() {
 		if (faces == null) {

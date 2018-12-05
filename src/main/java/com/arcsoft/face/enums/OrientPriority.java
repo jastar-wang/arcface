@@ -2,10 +2,11 @@ package com.arcsoft.face.enums;
 
 /**
  * 定义脸部检测角度的优先级
- *
- * @author Jastar Wang
- * @version 1.0
- * @date 2018/12/4
+ * 
+ * @author Jastar·Wang
+ * @email jastar_wang@163.com
+ * @date 2018-12-05
+ * @since 2.0
  */
 public interface OrientPriority {
 	int AFD_FSDK_OPF_0_ONLY = 0x1; // 检测 0 度方向

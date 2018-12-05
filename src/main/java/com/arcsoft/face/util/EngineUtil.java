@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
  * 引擎入口工具类
  *
  * @author Jastar·Wang
- * @version 1.0
+ * @version 2.0
  * @date 2018/11/30
  */
 @Slf4j
@@ -89,7 +89,7 @@ public class EngineUtil {
 	 *
 	 * @author Jastar Wang
 	 * @date 2018/11/30
-	 * @version 1.0
+	 * @version 2.0
 	 * @reurn 引擎版本信息
 	 */
 	public static Version getEngineVersion() {
@@ -103,7 +103,7 @@ public class EngineUtil {
 	 *            图片
 	 * @author Jastar Wang
 	 * @date 2018/11/30
-	 * @version 1.0
+	 * @version 2.0
 	 */
 	public static MultiFaceInfo detectFaces(BufferedImage image) {
 		MultiFaceInfo detectFaces = new MultiFaceInfo();
@@ -117,7 +117,7 @@ public class EngineUtil {
 			for (Rect mrect : mrects) {
 				Graphics g = image.getGraphics();
 				g.setColor(Color.RED);
-				g.drawRect(mrect.left, mrect.top, mrect.right - mrect.left, mrect.bottom - mrect.top);
+				g.drawRect(mrect.getLeft(), mrect.getTop(), mrect.getWidth(), mrect.getHeight());
 			}
 		}
 
@@ -134,7 +134,7 @@ public class EngineUtil {
 	 * @return 特征值对象
 	 * @author Jastar Wang
 	 * @date 2018/11/30
-	 * @version 1.0
+	 * @version 2.0
 	 */
 	public static FaceFeature extractFeature(SingleFaceInfo faceInfo, BufferedImage image) {
 		FaceFeature feature = new FaceFeature();
@@ -159,7 +159,7 @@ public class EngineUtil {
 	 * @return 相似度（置信度）
 	 * @author Jastar Wang
 	 * @date 2018/11/30
-	 * @version 1.0
+	 * @version 2.0
 	 */
 	public static float compareFeature(FaceFeature feature1, FaceFeature feature2) {
 		FloatByReference similar = new FloatByReference();

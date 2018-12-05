@@ -9,12 +9,23 @@ import com.sun.jna.Structure;
 
 import lombok.ToString;
 
+/**
+ * 人脸特征值
+ * 
+ * @author Jastar·Wang
+ * @email jastar_wang@163.com
+ * @date 2018-12-05
+ * @since 2.0
+ */
 @ToString
 public class FaceFeature extends Structure {
 
 	public Pointer feature;
+
+	// 特征值大小，据官方介绍固定为1023byte
 	public int featureSize;
 
+	// 特征值数据
 	private byte[] featureData;
 
 	public FaceFeature() {
