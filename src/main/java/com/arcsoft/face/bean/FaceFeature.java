@@ -53,7 +53,7 @@ public class FaceFeature extends Structure {
 	}
 
 	public byte[] getFeatureData() {
-		if (featureData == null) {
+		if (featureData == null && feature != null) {
 			featureData = feature.getByteArray(0, featureSize);
 		}
 		return featureData;
