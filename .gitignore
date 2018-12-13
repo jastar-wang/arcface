@@ -44,3 +44,4 @@ gen/
 # Business
 *.dll
 *.dat
+*.dat-journal
