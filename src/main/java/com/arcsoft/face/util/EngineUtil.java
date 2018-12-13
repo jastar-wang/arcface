@@ -168,6 +168,16 @@ public class EngineUtil {
 		return similar.getValue();
 	}
 
+	/**
+	 * 销毁引擎
+	 * 
+	 * @return 状态码
+	 */
+	public static long uninitEngine() {
+		NativeLong result = getInstance().ASFUninitEngine(phEngine.getValue());
+		return result.longValue();
+	}
+
 	// public static void main(String[] args) throws FrameGrabber.Exception,
 	// InterruptedException {
 	// OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);

@@ -4,9 +4,9 @@
 ![JDK](https://img.shields.io/badge/JDK-1.8-green.svg)
 ![SDK](https://img.shields.io/badge/SDK-2.0-brown.svg)
 ![Win](https://img.shields.io/badge/windows-x64-yellow.svg)
-![license](https://img.shields.io/badge/license-MIT-blue.svg)
-![status](https://img.shields.io/badge/status-dev-brightgreen.svg)
 ![release](https://img.shields.io/badge/release-2.0.0-red.svg)
+![license](https://img.shields.io/badge/license-MIT-blue.svg)
+![status](https://img.shields.io/badge/status-prd-brightgreen.svg)
 
 
 # 前言
@@ -19,6 +19,20 @@
 - Windows 32位、64位指的是JDK，并不是Windows操作系统的位数
 - master分支为最新的SDK 2.0版本，1.x的版本实现请查看[1.x分支](https://github.com/jastar-wang/arcface/tree/feature/1.x)（1.x实现来自于官方论坛Demo）
 - 本项目实现了对SDK的轻度封装，且为单线程模式，多线程情况下尚未测试（或不适用），求饶...
+
+
+# 目前功能
+- [x] 激活引擎：已封装并测试通过
+- [x] 初始化引擎：已封装并测试通过
+- [x] 检测人脸：已封装并测试通过
+- [x] 提取特征值：已封装并测试通过
+- [x] 对比特征值：已封装并测试通过
+- [ ] 人脸年龄/性别/角度检测预处理
+- [ ] 获取年龄
+- [ ] 获取性别
+- [ ] 获取3D角度
+- [x] 获取引擎版本：已封装并测试通过
+- [x] 销毁引擎：已封装并测试通过
 
 
 # 快速开始
@@ -71,4 +85,4 @@ git clone https://github.com/jastar-wang/arcface.git
 > 答：这是因为你的系统缺少dll运行的必要组件，别担心，点击 [这里](https://download.csdn.net/download/qq_16313365/10849250) 进行下载，根据自身情况选择32位或64位安装即可。
 
 # 许可证
-本项目遵循 [MIT](https://mit-license.org/) 开源协议，手动比心:blush:。
+本项目遵循 [MIT](https://mit-license.org/) 开源协议，手动比心:blush:

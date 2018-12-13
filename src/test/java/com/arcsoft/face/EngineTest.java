@@ -85,5 +85,9 @@ public class EngineTest {
 		// 对比特征值
 		System.out.println("similar = " + EngineUtil.compareFeature(feature1, feature2));
 
+		// 销毁引擎
+		EngineUtil.uninitEngine();
+
+		System.out.println("已销毁引擎！");
 	}
 }
