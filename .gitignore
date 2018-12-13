@@ -40,3 +40,8 @@ gen/
 
 # Operating System Files
 .DS_Store
+
+# Business
+*.dll
+*.dat
+*.dat-journal
