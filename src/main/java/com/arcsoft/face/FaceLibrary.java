@@ -47,14 +47,15 @@ public interface FaceLibrary extends Library {
 	 *            <li>IMAGE图片模式：适用于静态图片的识别</li>
 	 *            <li>参考{@link com.arcsoft.face.enums.DetectMode}</li>
 	 * @param detectFaceOrientPriority
-	 *            [in]
-	 *            检测脸部的角度优先值，参考：{@link com.arcsoft.face.enums.OrientPriority},
+	 *            [in] 检测脸部的角度优先值，参考：
+	 *            {@link com.arcsoft.face.enums.OrientPriority},
 	 *            {@link com.arcsoft.face.enums.OrientCode}
 	 * @param detectFaceScaleVal
 	 *            [in]
-	 *            用于数值化表示的最小人脸尺寸，该尺寸代表人脸尺寸相对于图片长边的占比。图像数据尺寸为1280x720，设置nscale为8，则检测到的最小人脸长边为1280/8
-	 *            = 160 // 例如，用户想检测到的最小人脸尺寸是图片长边的 1/8，则scaleVal设置为 8 video
-	 *            模式有效值范围[2,16], Image 模式有效值范围[2,32],推荐值为 16
+	 *            用于数值化表示的最小人脸尺寸，该尺寸代表人脸尺寸相对于图片长边的占比。图像数据尺寸为1280x720，设置nscale为8，
+	 *            则检测到的最小人脸长边为1280/8 = 160 // 例如，用户想检测到的最小人脸尺寸是图片长边的
+	 *            1/8，则scaleVal设置为 8 video 模式有效值范围[2,16], Image
+	 *            模式有效值范围[2,32],推荐值为 16
 	 * @param detectFaceMaxNum
 	 *            [in] 最大需要检测的人脸个数[1,50]
 	 * @param combinedMask

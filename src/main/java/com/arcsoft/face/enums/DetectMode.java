@@ -4,7 +4,6 @@ package com.arcsoft.face.enums;
  * 人脸检测模式常量
  * 
  * @author Jastar·Wang
- * @email jastar_wang@163.com
  * @date 2018-12-4
  * @since 2.0
  */

@@ -4,7 +4,6 @@ package com.arcsoft.face.enums;
  * 定义脸部检测角度的优先级
  * 
  * @author Jastar·Wang
- * @email jastar_wang@163.com
  * @date 2018-12-05
  * @since 2.0
  */

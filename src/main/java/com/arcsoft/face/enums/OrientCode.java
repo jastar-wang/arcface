@@ -5,7 +5,6 @@ package com.arcsoft.face.enums;
  * 定义检测结果中的人脸角度
  * 
  * @author Jastar·Wang
- * @email jastar_wang@163.com
  * @date 2018-12-05
  * @since 2.0
  */

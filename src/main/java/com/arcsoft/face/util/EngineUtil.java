@@ -23,23 +23,30 @@ import com.sun.jna.ptr.PointerByReference;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 引擎入口工具类
+ * 引擎工具类
  *
  * @author Jastar·Wang
- * @version 2.0
- * @date 2018/11/30
+ * @date 2018-11-30
+ * @since 2.0
  */
 @Slf4j
 public class EngineUtil {
+
+	private EngineUtil() {
+	}
 
 	private static FaceLibrary INSTANCE = null;
 	private static PointerByReference phEngine = new PointerByReference();
 
 	public static FaceLibrary getInstance() {
 		if (INSTANCE == null) {
-			INSTANCE = FaceLibrary.INSTANCE;
-			activation();
-			init();
+			synchronized (EngineUtil.class) {
+				if (INSTANCE == null) {
+					INSTANCE = FaceLibrary.INSTANCE;
+					activation();
+					init();
+				}
+			}
 		}
 		return INSTANCE;
 	}
@@ -71,14 +78,14 @@ public class EngineUtil {
 	}
 
 	/**
-	 * 将图片的宽度转换为4的整数倍（官方要求，原因尚不清楚）
+	 * 剪裁图片以获得4的整数倍宽度（官方要求，原因尚不清楚）
 	 *
 	 * @param src
 	 *            原图
 	 * @return 新图
 	 */
 	private static BufferedImage convertImageTo4Times(BufferedImage src) {
-		if (src.getWidth() % 4 != 0) {
+		if (src != null && src.getWidth() % 4 != 0) {
 			return src.getSubimage(0, 0, src.getWidth() - (src.getWidth() % 4), src.getHeight());
 		}
 		return src;
@@ -87,31 +94,31 @@ public class EngineUtil {
 	/**
 	 * 获取引擎版本信息
 	 *
-	 * @author Jastar Wang
-	 * @date 2018/11/30
-	 * @version 2.0
-	 * @reurn 引擎版本信息
+	 * @return 引擎版本信息
 	 */
 	public static Version getEngineVersion() {
 		return getInstance().ASFGetVersion(phEngine.getValue());
 	}
 
 	/**
-	 * 检测多张人脸
-	 *
+	 * 
+	 * 检测人脸信息
+	 * 
 	 * @param image
-	 *            图片
-	 * @author Jastar Wang
-	 * @date 2018/11/30
-	 * @version 2.0
+	 *            要检测的图片
+	 * @return 多张人脸信息
 	 */
 	public static MultiFaceInfo detectFaces(BufferedImage image) {
 		MultiFaceInfo detectFaces = new MultiFaceInfo();
+		if (image == null) {
+			return detectFaces;
+		}
 		image = convertImageTo4Times(image);
 		BufferInfo bufferInfo = ImageLoader.getBGRFromFile(image);
 		getInstance().ASFDetectFaces(phEngine.getValue(), image.getWidth(), image.getHeight(),
 				ColorFormat.ASVL_PAF_RGB24_B8G8R8, bufferInfo.buffer, detectFaces);
 
+		// 在此处进行了画人脸框，不想要可以自行修改
 		if (detectFaces.haveFace()) {
 			Rect[] mrects = detectFaces.getFaceRects();
 			for (Rect mrect : mrects) {
@@ -120,7 +127,6 @@ public class EngineUtil {
 				g.drawRect(mrect.getLeft(), mrect.getTop(), mrect.getWidth(), mrect.getHeight());
 			}
 		}
-
 		return detectFaces;
 	}
 
@@ -132,9 +138,6 @@ public class EngineUtil {
 	 * @param image
 	 *            图片
 	 * @return 特征值对象
-	 * @author Jastar Wang
-	 * @date 2018/11/30
-	 * @version 2.0
 	 */
 	public static FaceFeature extractFeature(SingleFaceInfo faceInfo, BufferedImage image) {
 		FaceFeature feature = new FaceFeature();
@@ -157,9 +160,6 @@ public class EngineUtil {
 	 * @param feature2
 	 *            特征值2
 	 * @return 相似度（置信度）
-	 * @author Jastar Wang
-	 * @date 2018/11/30
-	 * @version 2.0
 	 */
 	public static float compareFeature(FaceFeature feature1, FaceFeature feature2) {
 		FloatByReference similar = new FloatByReference();

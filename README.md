@@ -1,29 +1,37 @@
 # 关于
-虹软人脸识别SDK之Java版，支持SDK 1.1+，以及当前最新版本2.0，看什么，抓紧上车！
+虹软人脸识别SDK之Java版，支持SDK 1.1+，以及当前最新版本2.0，滴滴，抓紧上车！
 
 ![JDK](https://img.shields.io/badge/JDK-1.8-green.svg)
 ![SDK](https://img.shields.io/badge/SDK-2.0-brown.svg)
 ![Win](https://img.shields.io/badge/windows-x64-yellow.svg)
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 ![status](https://img.shields.io/badge/status-dev-brightgreen.svg)
-![release](https://img.shields.io/badge/release-1.0.0-red.svg)
+![release](https://img.shields.io/badge/release-2.0.0-red.svg)
 
 
 # 前言
-由于业务需求，本人跟这个玩意挂上了边，本以为虹软提供的SDK是那种面向开发语言的，结果是一堆dll·····像我这样的Java猿突然就感觉整个人都不好了；近期还赶上了SDK2.0的重大升级，在各种论坛、Google、百度、QQ等等的帮助下，爬过了一个又一个坑，终于搞定了！噗！回过头来发现不少伙伴们都像我当初一样迷茫，So，我回来拯救世界了，当当当当~
+由于业务需求，最近跟人脸识别杠上了，本以为虹软提供的SDK是那种面向开发语言的，结果是一堆dll······像我这样的Java猿突然就感觉整个人都不好了；近期赶上了SDK2.0的升级，在官方论坛、Google、百度、QQ等等的帮助下，爬过了一个又一个坑，终于搞定了！噗！回过头来发现不少伙伴们都像我当初一样迷茫，So，我回来拯救世界了~
 
-# 许可证
-本项目遵循 [MIT](https://mit-license.org/) 开源协议
+
+# 注意
+- 本项目需要lombok的支持
+- 虹软官方分为“人证SDK”、“活体检测”和“ArcFace”三种，本项目使用的是“ArcFace”
+- Windows 32位、64位指的是JDK，并不是Windows操作系统的位数
+- master分支为最新的SDK 2.0版本，1.x的版本实现请查看[1.x分支](https://github.com/jastar-wang/arcface/tree/feature/1.x)（1.x实现来自于官方论坛Demo）
+- 本项目实现了对SDK的轻度封装，且为单线程模式，多线程情况下尚未测试（或不适用），求饶...
+
 
 # 快速开始
-## 下载DLL文件
+## 下载DLL
 ## 配置KEY
 ## 测试
 
+
 # 参考资料
 - [虹软SDK的常见问题指南](http://ai.arcsoft.com.cn/manual/faqs.html)
+- [虹软官方问答指导集锦](https://ai.arcsoft.com.cn/bbs/forum.php?mod=viewthread&tid=884&extra=page%3D1)
 
-# 注意事项
+# 常见问题
 （1）SDK有效期？
 > 答：SDK激活码有效期为一年，到期之后需要重新申请激活码，并且重新下载SDK，SDK与激活码应当匹配。
 
@@ -44,3 +52,7 @@
 
 （7）关于多线程使用？
 > 答：多线程使用场景下，每个线程都需要初始化一个引擎。
+
+
+# 许可证
+本项目遵循 [MIT](https://mit-license.org/) 开源协议

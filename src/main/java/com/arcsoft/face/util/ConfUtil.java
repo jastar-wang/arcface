@@ -1,19 +1,18 @@
 package com.arcsoft.face.util;
 
 /**
- * 配置
- *
- * @author Jastar Wang
- * @version 1.0
- * @date 2018/11/30
+ * 
+ * 配置信息
+ * 
+ * @author Jastar·Wang
+ * @date 2018-11-30
+ * @since 2.0
  */
 public class ConfUtil {
 
-    // 有效期至：2019-11-16
-    public static final String appId = "GZaBaD8bWC7bDKmonhmudXejmBb3ijRiXcPBTvmeZDiu";
-    // Windows(X64)
-    public static final String appKey = "6K2JhygXW2hCcr6XCRtKxfqcNAkvbdeoJNmUdpwKmcxu";
-    // Windows(X86)
-    // public static final String appKey = "6K2JhygXW2hCcr6XCRtKxfqcJvXfyc6uLKDzJCvmov8D";
+	// 2.0版本位数不同，但appId一致
+	public static final String appId = "";
+	// Windows(X64)
+	public static final String appKey = "";
 
 }

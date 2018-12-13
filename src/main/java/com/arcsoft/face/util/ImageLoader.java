@@ -21,7 +21,6 @@ public class ImageLoader {
 	public static final boolean USING_FLOAT = false;
 
 	public static BufferInfo getI420FromFile(String filePath) {
-
 		try {
 			BufferedImage img = ImageIO.read(new File(filePath));
 			return getI420FromFile(img);
@@ -47,7 +46,6 @@ public class ImageLoader {
 		} else {
 			yuv = BGRA2I420(bgra, w, h);
 		}
-
 		return new BufferInfo(w, h, yuv);
 	}
 
@@ -137,9 +135,9 @@ public class ImageLoader {
 	/**
 	 * 将Image对象转换为BufferedImage对象（解决ImageIO加载png时会有红色蒙版的问题）
 	 *
-	 * @author Jastar Wang
-	 * @date 2018/12/4
-	 * @version 1.0
+	 * @author Jastar·Wang
+	 * @date 2018-12-4
+	 * @since 2.0
 	 */
 	public static BufferedImage toBufferedImage(Image image) {
 		if (image instanceof BufferedImage) {

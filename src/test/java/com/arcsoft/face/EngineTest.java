@@ -22,7 +22,7 @@ import com.arcsoft.face.util.ImageLoader;
  *
  * @author Jastar·Wang
  * @version 1.0
- * @date 2018/12/4
+ * @date 2018-12-4
  */
 public class EngineTest {
 
