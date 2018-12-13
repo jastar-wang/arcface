@@ -22,9 +22,20 @@
 
 
 # 快速开始
+## 安装项目
+```
+git clone https://github.com/jastar-wang/arcface.git
+```
+然后将项目导入到Eclipse或IDEA中并进行maven update
+
 ## 下载DLL
+登录[虹软官方网站](http://ai.arcsoft.com.cn/ucenter/user/userlogin)，下载ArcFace 2.0的SDK，并将`libarcsoft_face.dll`和`libarcsoft_face_engine.dll`两个文件粘贴到`src/test/resources`目录下
+
 ## 配置KEY
+将官网获取到的SDK激活码填入到`com.arcsoft.face.util.ConfUtil`类的对应常量中
+
 ## 测试
+打开`com.arcsoft.face.EngineTest`类，运行单元测试即可
 
 
 # 参考资料
@@ -53,6 +64,11 @@
 （7）关于多线程使用？
 > 答：多线程使用场景下，每个线程都需要初始化一个引擎。
 
+（8）如何加载图片？
+> 答：可以使用“ImageIO.read()方式读取图片，但该方式读取某些类型的图片时，不会正确读取ICC的信息，因此会在写出图片时生成一层红色蒙版（如果不写出图片那就无所谓）。有两种解决方案：(1)参照EngineTest.testAll()方法中的加载方式，这种方式仅限于Windows下使用，因为需要用到图形环境的支持。(2)使用javacv（基于opencv）加载图片，pom依赖中已注释，本人放弃的原因是因为jar包太大且需求不会有Linux环境。”
+
+（9）运行`EngineTest`单元测试提示“...找不到指定模块”？
+> 答：这是因为你的系统缺少dll运行的必要组件，别担心，点击 [这里](https://download.csdn.net/download/qq_16313365/10849250) 进行下载，根据自身情况选择32位或64位安装即可。
 
 # 许可证
-本项目遵循 [MIT](https://mit-license.org/) 开源协议
+本项目遵循 [MIT](https://mit-license.org/) 开源协议，手动比心:blush:。
