@@ -16,7 +16,7 @@ import lombok.ToString;
  * @date 2018-12-05
  * @since 2.0
  */
-@ToString
+@ToString(exclude = { "faceRect", "faceOrient", "faces" })
 public class MultiFaceInfo extends Structure {
 
 	public Rect.ByReference faceRect;

@@ -118,13 +118,14 @@ public class EngineUtil {
 		getInstance().ASFDetectFaces(phEngine.getValue(), image.getWidth(), image.getHeight(),
 				ColorFormat.ASVL_PAF_RGB24_B8G8R8, bufferInfo.buffer, detectFaces);
 
-		// 在此处进行了画人脸框，不想要可以自行修改
+		// 在图片中画出人脸框
 		if (detectFaces.haveFace()) {
 			Rect[] mrects = detectFaces.getFaceRects();
 			for (Rect mrect : mrects) {
 				Graphics g = image.getGraphics();
 				g.setColor(Color.RED);
 				g.drawRect(mrect.getLeft(), mrect.getTop(), mrect.getWidth(), mrect.getHeight());
+				// TODO 此处没有释放g资源，画线的操作可根据自身需求进行修改
 			}
 		}
 		return detectFaces;
