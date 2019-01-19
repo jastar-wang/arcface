@@ -16,7 +16,7 @@ import lombok.ToString;
  * @date 2018-12-05
  * @since 2.0
  */
-@ToString
+@ToString(exclude = "genderArray")
 public class GenderInfo extends Structure {
 
 	// 男性

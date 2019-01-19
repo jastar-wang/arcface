@@ -16,7 +16,7 @@ import lombok.ToString;
  * @date 2018-12-05
  * @since 2.0
  */
-@ToString
+@ToString(exclude = { "roll", "yaw", "pitch", "status" })
 public class Face3DAngle extends Structure {
 
 	public PointerByReference roll;// 横滚角float[]

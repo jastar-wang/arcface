@@ -16,7 +16,7 @@ import lombok.ToString;
  * @date 2018-12-05
  * @since 2.0
  */
-@ToString
+@ToString(exclude = "ageArray")
 public class AgeInfo extends Structure {
 
 	public PointerByReference ageArray;
