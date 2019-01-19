@@ -5,8 +5,11 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import com.arcsoft.face.FaceLibrary;
+import com.arcsoft.face.bean.AgeInfo;
 import com.arcsoft.face.bean.BufferInfo;
+import com.arcsoft.face.bean.Face3DAngle;
 import com.arcsoft.face.bean.FaceFeature;
+import com.arcsoft.face.bean.GenderInfo;
 import com.arcsoft.face.bean.MultiFaceInfo;
 import com.arcsoft.face.bean.Rect;
 import com.arcsoft.face.bean.SingleFaceInfo;
@@ -20,6 +23,8 @@ import com.sun.jna.NativeLong;
 import com.sun.jna.ptr.FloatByReference;
 import com.sun.jna.ptr.PointerByReference;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -30,10 +35,8 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2.0
  */
 @Slf4j
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EngineUtil {
-
-	private EngineUtil() {
-	}
 
 	private static FaceLibrary INSTANCE = null;
 	private static PointerByReference phEngine = new PointerByReference();
@@ -178,25 +181,71 @@ public class EngineUtil {
 		return result.longValue();
 	}
 
-	// public static void main(String[] args) throws FrameGrabber.Exception,
-	// InterruptedException {
-	// OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
-	// grabber.start(); //开始获取摄像头数据
-	// CanvasFrame canvas = new CanvasFrame("摄像头");//新建一个窗口
-	// canvas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	// canvas.setAlwaysOnTop(true);
-	// while (true) {
-	// if (!canvas.isDisplayable()) {//窗口是否关闭
-	// grabber.stop();//停止抓取
-	// System.exit(-1);//退出
-	// }
-	//
-	// Frame frame = grabber.grab();
-	//
-	// canvas.showImage(frame);//获取摄像头图像并放到窗口上显示， 这里的Frame frame=grabber.grab();
-	// frame是一帧视频图像
-	// Thread.sleep(50);//50毫秒刷新一次图像
-	// }
-	// }
+	/**
+	 * 预处理检测年龄、性别、3D角度信息<br>
+	 * 该方法适用于调用前未提前检测人脸对象，内部根据image重新检测；<b>注意：最多支持4张人脸检测，超过部分返回未知</b>
+	 * 
+	 * @param image
+	 *            图片对象
+	 * @return 状态码
+	 */
+	public static long process(BufferedImage image) {
+		MultiFaceInfo faces = detectFaces(image);
+		return process(faces, image);
+	}
+
+	/**
+	 * 预处理检测年龄、性别、3D角度<br>
+	 * 该方法适用于调用前已经检测了人脸，内部不再检测，提升性能；<b>注意：最多支持4张人脸检测，超过部分返回未知</b>
+	 * 
+	 * @param faceInfo
+	 *            人脸信息
+	 * @param image
+	 *            图片
+	 */
+	public static long process(MultiFaceInfo faceInfo, BufferedImage image) {
+		image = convertImageTo4Times(image);
+		BufferInfo bufferInfo = ImageLoader.getBGRFromFile(image);
+		int combinedMask = Mask.ASF_AGE | Mask.ASF_GENDER | Mask.ASF_FACE3DANGLE;
+		NativeLong result = getInstance().ASFProcess(phEngine.getValue(), image.getWidth(), image.getHeight(),
+				ColorFormat.ASVL_PAF_RGB24_B8G8R8, bufferInfo.buffer, faceInfo, combinedMask);
+		return result.longValue();
+	}
+
+	/**
+	 * 获得人脸年龄<br>
+	 * <b>调用前必须先调用 {@link com.arcsoft.face.util.EngineUtil#process} ，且只需调用一次</b>
+	 * 
+	 * @return 年龄信息
+	 */
+	public static AgeInfo getAge() {
+		AgeInfo ageInfo = new AgeInfo();
+		getInstance().ASFGetAge(phEngine.getValue(), ageInfo);
+		return ageInfo;
+	}
+
+	/**
+	 * 获得性别<br>
+	 * <b>调用前必须先调用 {@link com.arcsoft.face.util.EngineUtil#process} ，且只需调用一次</b>
+	 * 
+	 * @return 性别信息
+	 */
+	public static GenderInfo getGender() {
+		GenderInfo gender = new GenderInfo();
+		getInstance().ASFGetGender(phEngine.getValue(), gender);
+		return gender;
+	}
+
+	/**
+	 * 获得人脸3D角度信息<br>
+	 * <b>调用前必须先调用 {@link com.arcsoft.face.util.EngineUtil#process} ，且只需调用一次</b>
+	 * 
+	 * @return 3D角度信息
+	 */
+	public static Face3DAngle getFace3DAngle() {
+		Face3DAngle face3dAngle = new Face3DAngle();
+		getInstance().ASFGetFace3DAngle(phEngine.getValue(), face3dAngle);
+		return face3dAngle;
+	}
 
 }
