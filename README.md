@@ -4,7 +4,7 @@
 ![JDK](https://img.shields.io/badge/JDK-1.8-green.svg)
 ![SDK](https://img.shields.io/badge/SDK-2.0-brown.svg)
 ![Win](https://img.shields.io/badge/windows-x64-yellow.svg)
-![release](https://img.shields.io/badge/release-2.0.0-red.svg)
+![release](https://img.shields.io/badge/release-2.1.0-red.svg)
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 ![status](https://img.shields.io/badge/status-prd-brightgreen.svg)
 
@@ -12,27 +12,30 @@
 # 前言
 由于业务需求，最近跟人脸识别杠上了，本以为虹软提供的SDK是那种面向开发语言的，结果是一堆dll······像我这样的Java猿突然就感觉整个人都不好了；近期赶上了SDK2.0的升级，在官方论坛、Google、百度、QQ等等的帮助下，爬过了一个又一个坑，终于搞定了！噗！回过头来发现不少伙伴们都像我当初一样迷茫，So，我回来拯救世界了~
 
+后更：刚写了没多久，虹软SDK的Java版Demo就出来了.................
 
 # 注意
 - 本项目需要lombok的支持
 - 虹软官方分为“人证SDK”、“活体检测”和“ArcFace”三种，本项目使用的是“ArcFace”
 - Windows 32位、64位指的是JDK，并不是Windows操作系统的位数
 - master分支为最新的SDK 2.0版本，1.x的版本实现请查看[1.x分支](https://github.com/jastar-wang/arcface/tree/feature/1.x)（1.x实现来自于官方论坛Demo）
-- 本项目实现了对SDK的轻度封装，且为单线程模式，多线程情况下尚未测试（或不适用），求饶...
+- 本项目实现了对SDK的轻度封装，且为单线程模式，多线程情况下尚未测试，放过可怜的孩子吧...
 
 
-# 目前功能
-- [x] 激活引擎：已封装并测试通过
-- [x] 初始化引擎：已封装并测试通过
-- [x] 检测人脸：已封装并测试通过
-- [x] 提取特征值：已封装并测试通过
-- [x] 对比特征值：已封装并测试通过
-- [ ] 人脸年龄/性别/角度检测预处理
-- [ ] 获取年龄
-- [ ] 获取性别
-- [ ] 获取3D角度
-- [x] 获取引擎版本：已封装并测试通过
-- [x] 销毁引擎：已封装并测试通过
+# 功能特点
+> 对SDK接口进行了二次封装，所有操作只需要一个简单的工具类就ojbk，用起来爽的一批~
+
+- [x] 激活引擎
+- [x] 初始化引擎
+- [x] 检测人脸
+- [x] 提取特征值
+- [x] 对比特征值
+- [x] 年龄/性别/角度检测预处理
+- [x] 获取年龄
+- [x] 获取性别
+- [x] 获取3D角度
+- [x] 获取引擎版本
+- [x] 销毁引擎
 
 
 # 快速开始
