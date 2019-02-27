@@ -64,7 +64,7 @@ public interface FaceLibrary extends Library {
 	 *            [out] 初始化返回的引擎handle
 	 * @return 成功返回MOK，失败返回错误码，参考{@link com.arcsoft.face.enums.ErrorCode}
 	 */
-	NativeLong ASFInitEngine(int detectMode, int detectFaceOrientPriority, int detectFaceScaleVal, int detectFaceMaxNum,
+	NativeLong ASFInitEngine(long detectMode, int detectFaceOrientPriority, int detectFaceScaleVal, int detectFaceMaxNum,
 			int combinedMask, PointerByReference phEngine);
 
 	/**
