@@ -11,9 +11,9 @@ public interface DetectMode {
 	/**
 	 * 视频模式
 	 */
-	int ASF_DETECT_MODE_VIDEO = 0x00000000;
+	long ASF_DETECT_MODE_VIDEO = 0x00000000L;
 	/**
 	 * 图片模式
 	 */
-	int ASF_DETECT_MODE_IMAGE = 0xFFFFFFFF;
+	long ASF_DETECT_MODE_IMAGE = 0xFFFFFFFFL;
 }
