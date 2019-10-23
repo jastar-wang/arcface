@@ -4,7 +4,7 @@
 ![JDK](https://img.shields.io/badge/JDK-1.8-green.svg)
 ![SDK](https://img.shields.io/badge/SDK-2.0-brown.svg)
 ![Win](https://img.shields.io/badge/windows-x64-yellow.svg)
-![release](https://img.shields.io/badge/release-2.1.0-red.svg)
+![release](https://img.shields.io/badge/release-2.1.1-red.svg)
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 ![status](https://img.shields.io/badge/status-prd-brightgreen.svg)
 

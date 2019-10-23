@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jastarwang</groupId>
     <artifactId>arcface4j</artifactId>
-    <version>2.1.0</version>
+    <version>2.1.1</version>
     <name>arcface</name>
     <description>ArcSoft face recognition SDK for java</description>
 
